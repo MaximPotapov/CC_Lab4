@@ -1,0 +1,28 @@
+1010  aws ec2 create-subnet --cidr-block 172.31.1.0/24 --vpc-id vpc-5b288230
+ 1011  aws elbv2 create-load-balancer --name FRTH4 --type application --scheme internet-facing --subnets subnet-c2abd88e subnet-2408035e
+ 1012  aws ec2 authorize-security-group-ingress --group-id sg-c1077ebe --protocol tcp --port 80 --cidr 0.0.0.0/0
+ 1013  aws ec2 authorize-security-group-ingress --group-id sg-c1077ebe --protocol tcp --port 22 --cidr 0.0.0.0/0
+ 1014  aws elbv2 set-security-groups --load-balancer-arn arn:aws:elasticloadbalancing:us-east-2:207896869126:loadbalancer/app/FRTH4/28fc8aa0e0c3cf43 --security-groups sg-sg-c1077ebe
+ 1015  aws elbv2 set-security-groups --load-balancer-arn arn:aws:elasticloadbalancing:us-east-2:207896869126:loadbalancer/app/FRTH4/28fc8aa0e0c3cf43 --security-groups sg-c1077ebe
+ 1016  aws ec2 create-key-pair --key-name FRTHKey_query --query 'KeyMaterial' --output text > FRTH4Key_query
+ 1017  cd Desktop/
+ 1018  cd CC_Lab4
+ 1019  cat AEX3Key_query
+ 1020  chmod 400 AEX3Key_query
+ 1021  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name FRTH3Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1022  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name FRTH3Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1023  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name FRTH4Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1024  ls
+ 1025  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name FRTH4Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1026  aws ec2 create-key-pair --key-name FRTHKey_query --query 'KeyMaterial' --output text > FRTH4Key_query
+ 1027  cat FRTH4Key_query
+ 1028  chmod 400 FRTH4Key_query
+ 1029  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name FRTH4Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1030  aws ec2 run-instances --image-id ami-07cc6fd8b4c19f51f --count 2 --instance-type t2.micro --key-name AEX3Key_query --associate-public-ip-address --security-group-ids sg-c1077ebe\n
+ 1031  aws elbv2 create-target-group --name FRTH4TargetGroup --target-type instance --protocol HTTP --port 80 --vpc-id vpc-0192ba70db6ca2ac1\n
+ 1032  aws elbv2 create-target-group --name FRTH4TargetGroup --target-type instance --protocol HTTP --port 80 --vpc-id vpc-5b288230\n
+ 1033  aws elbv2 register-targets --target-group-arn arn:aws:elasticloadbalancing:us-east-2:207896869126:targetgroup/FRTH4TargetGroup/a7fa5df6d0af75bd --targets Id=i-0404efe70596e62cf Id=i-0cc5d87a9e4830495
+ 1034  aws elbv2 create-listener --load-balancer-arn arn:aws:elasticloadbalancing:us-east-2:207896869126:loadbalancer/app/FRTH4/28fc8aa0e0c3cf43 --protocol HTTP --port 80 --default-actions Type=forward,TargetGroupArn=arn:aws:elasticloadbalancing:us-east-2:207896869126:targetgroup/FRTH4TargetGroup/a7fa5df6d0af75bd\n\n\n
+ 1035  ssh -i AEX3Key_query ec2-user@3.140.106.161
+ 1036  ssh -i AEX3Key_query ec2-user@3.140.106.161
+ 1037  ssh -i AEX3Key_query ec2-user@3.14.48.229
